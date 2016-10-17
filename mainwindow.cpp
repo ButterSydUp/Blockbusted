@@ -61,7 +61,9 @@ void MainWindow::on_add_emp_clicked()
 
     if(empVer.isSignedIn == true)
     {
-
+        addEmployee addEmp;
+        addEmp.setModal(true);
+        addEmp.exec();
     }
 }
 
@@ -127,7 +129,9 @@ void MainWindow::on_check_out_clicked()
 //Does not require authentication
 void MainWindow::on_add_Customer_clicked()
 {
-
+    addCustomer addCus;
+    addCus.setModal(true);
+    addCus.exec();
 }
 
 //Button for removing customers from database
