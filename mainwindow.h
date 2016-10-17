@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "emp_verification.h"
+#include "addemployee.h"
+#include "addcustomer.h"
 
 namespace Ui {
 class MainWindow;
