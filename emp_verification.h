@@ -16,6 +16,7 @@ class emp_verification : public QDialog
     Q_OBJECT
 
 public:
+    bool isSignedIn = false;
     explicit emp_verification(QWidget *parent = 0);
     ~emp_verification();
 
