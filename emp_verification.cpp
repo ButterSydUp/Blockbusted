@@ -7,8 +7,14 @@ emp_verification::emp_verification(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    DbManager blockbusted_db;
+    blockbusted_db = QSqlDatabase::addDatabase("QSQLITE");
+    blockbusted_db.setDatabaseName("C:/Users/Raymango/Downloads/blockbusted_db.db");
 
+    //Checks to see if database opened
+    if(!blockbusted_db.open())
+        ui->label->setText("Failed to connect to database...");
+    else
+        ui->label->setText("Connected to database...");
 }
 
 emp_verification::~emp_verification()
@@ -32,6 +38,12 @@ void emp_verification::on_signInButton_clicked()
     QString username, password;
     username = ui->lineEdit_Username->text();
     password = ui->lineEdit_Password->text();
+
+    if(!blockbusted_db.isOpen())
+    {
+        qDebug() << "Failed to connect...";
+        return;
+    }
 
     QSqlQuery qry;
 
