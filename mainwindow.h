@@ -25,7 +25,7 @@ public:
     bool dataOpen()
     {
         blockbusted_db = QSqlDatabase::addDatabase("QSQLITE");
-        blockbusted_db.setDatabaseName("/Users/FF/Documents/CSUSM/2016 Fall/1CS 441 Software Engineering  Mon 0915 - 1115/Blockbusted-master/Updated-Files/blockbusted_db.db");
+        blockbusted_db.setDatabaseName("./blockbusted_db.db");
 
         //Checks to see if database opened
         if(!blockbusted_db.open())
