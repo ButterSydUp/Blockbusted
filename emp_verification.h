@@ -2,6 +2,7 @@
 #define EMP_VERIFICATION_H
 
 #include <QDialog>
+#include "mainwindow.h"
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
