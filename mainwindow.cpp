@@ -107,7 +107,9 @@ void MainWindow::on_edit_Inv_clicked()
 
     if(empVer.isSignedIn == true)
     {
-
+        edit_inventory editInv;
+        editInv.setModal(true);
+        editInv.exec();
     }
 }
 
