@@ -48,6 +48,7 @@ MainWindow::~MainWindow()
 //Button for quitting the program
 void MainWindow::on_fts_clicked()
 {
+    database->dataClose();
     qApp->exit();
 }
 
