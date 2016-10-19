@@ -55,18 +55,18 @@ void edit_inventory::on_edit_product_clicked()
     else
         QMessageBox::critical(this, tr("error::"), qry.lastError().text());
 }
-/*
+
 void edit_inventory::on_load_inv_clicked()
 {
     QSqlQueryModel * model = new QSqlQueryModel();
-    QSqlQuery qry = new ;
+    QSqlQuery* qry = new QSqlQuery();
     qry->prepare("SELECT * FROM Inventory");
     qry->exec();
     model->setQuery(*qry);
     ui->inv_view->setModel(model);
     qDebug() << (model->rowCount());
 }
-*/
+
 void edit_inventory::on_inv_view_clicked(const QModelIndex &index)
 {
     QString val = ui->inv_view->model()->data(index).toString();
