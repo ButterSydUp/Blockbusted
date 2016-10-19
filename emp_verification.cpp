@@ -6,20 +6,11 @@ emp_verification::emp_verification(QWidget *parent) :
     ui(new Ui::emp_verification)
 {
     ui->setupUi(this);
-/*
-    blockbusted_db = QSqlDatabase::addDatabase("QSQLITE");
-    blockbusted_db.setDatabaseName("C:/Users/Raymango/Downloads/blockbusted_db.db");
-*/
-    //Checks to see if database opened
-    MainWindow database;
-    if(/*!blockbusted_db.open()*/ !database.dataOpen())
-        ui->label->setText("Failed to connect to database...");
-    else
-        ui->label->setText("Connected to database...");
 }
 
 emp_verification::~emp_verification()
 {
+    qDebug() << "EMPLOYEE DONE";
     delete ui;
 }
 
@@ -36,20 +27,10 @@ void emp_verification::on_cancelButton_clicked()
 //If not a manager, returns saying "Insufficient privileges"
 void emp_verification::on_signInButton_clicked()
 {
-    MainWindow database;
     QString username, password;
     username = ui->lineEdit_Username->text();
     password = ui->lineEdit_Password->text();
-
-    if(/*!blockbusted_db.isOpen()*/ !database.dataOpen())
-    {
-        qDebug() << "Failed to connect...";
-        return;
-    }
-
-    database.dataOpen();
     QSqlQuery qry;
-
     if(qry.exec("SELECT * FROM Employee WHERE EmpID = '"+ username +"' AND Password = '"+ password +"'"))
     {
         int count = 0;
@@ -65,7 +46,6 @@ void emp_verification::on_signInButton_clicked()
         {
             ui->label->setText("Signed in");
             isSignedIn = true;
-            database.dataClose();
             this->close();
         }
         else if(count == 1 && managerFlag != 1)
