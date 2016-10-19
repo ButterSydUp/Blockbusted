@@ -8,6 +8,7 @@ addCustomer::addCustomer(QWidget *parent) :
     ui->setupUi(this);
 }
 
+//addition
 addCustomer::~addCustomer()
 {
     delete ui;
