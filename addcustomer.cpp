@@ -39,8 +39,26 @@ void addCustomer::on_addButton_clicked()
     }
     else
     {
-        DbManager dataBase;
-        dataBase.addCustomerToDB(fName, lName, addr, cit, sta, zCode, pNum, emailA);
+        //DbManager dataBase;
+        //dataBase.addCustomerToDB(fName, lName, addr, cit, sta, zCode, pNum, emailA);
+        
+        QSqlQuery query;
+        query.prepare("INSERT INTO Customer (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, EmailAddress)"
+                      "VALUES (:FirstName, :LastName, :Address, :City, :State, :ZipCode, :PhoneNumber, :EmailAddress)");
+        query.bindValue(":FirstName", fName);
+        query.bindValue(":LastName", lName);
+        query.bindValue(":Address", addr);
+        query.bindValue(":City", cit);
+        query.bindValue(":State", sta);
+        query.bindValue(":ZipCode", zCode);
+        query.bindValue(":PhoneNumber", pNum);
+        query.bindValue(":EmailAddress", emailA);
+        if(!query.exec())
+        {
+            qDebug() << "Add Person Error: "
+                     << query.lastError();
+        }
+        
         ui->errorLabel->setText("Customer was added to the database, click 'add'");
         ui->errorLabel2->setText("to add another customer or cancel to exit.");
         ui->cusfirstName->setText(NULL);
