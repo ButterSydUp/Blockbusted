@@ -30,7 +30,7 @@ private slots:
 
 private:
     Ui::emp_verification *ui;
-    QSqlDatabase blockbusted_db;
+    //QSqlDatabase blockbusted_db;
 };
 
 #endif // EMP_VERIFICATION_H
