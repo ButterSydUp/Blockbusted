@@ -25,7 +25,7 @@ DbManager::~DbManager(){
     dataClose();
 }
 
-
+/*
 //Adds a customer to the database
 //Takes in first and last name, address, phone number, and email address as arguments
 void DbManager::addCustomerToDB(QString firstName, QString lastName, QString address, QString city,
@@ -48,4 +48,4 @@ void DbManager::addCustomerToDB(QString firstName, QString lastName, QString add
                  << query.lastError();
     }
 }
-
+*/
