@@ -24,7 +24,7 @@ private slots:
 
     void on_edit_product_clicked();
 
-    //void on_load_inv_clicked();
+    void on_load_inv_clicked();
 
     void on_inv_view_clicked(const QModelIndex &index);
 
