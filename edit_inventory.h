@@ -32,7 +32,7 @@ private slots:
 
 private:
     Ui::edit_inventory *ui;
-    QSqlDatabase blockbusted_db;
+    //QSqlDatabase blockbusted_db;
 
 };
 
