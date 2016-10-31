@@ -15,3 +15,28 @@ Therefore it'll look like this:
 
 Also the only other change necessary is in the dbmanager.cpp file
 line 2 needs to be you specific absolute path to the blockbusted_db.db file
+
+
+Sprint 1:
+    Major Class Design
+    Learn QT and incorporate a main window
+    Add Button shells for Add and Remove Employee, Customer as well as Edit Inventory
+    Make shells for Check in and Check out inventory
+    Create a quit button
+    
+    
+    
+Sprint 2:
+
+   Resizing windows for many resolutions
+   Add emp_verification for restricted privelage functions
+   Add employee/customer screen definitions
+   Edit inventory screen definition
+ 
+ 
+Sprint 3: 
+    Alter Resizing so buttons can't change size, and add scaling for quit button
+    Merge all button definitions into one master branch
+    Worked on and resolved one universal database accessor class 
+    
+    
