@@ -23,7 +23,7 @@ private slots:
     //Cancels out of sign in window
     void on_cancelButton_clicked();
 
-    void on_signInButton_clicked();
+    void on_addButton_clicked();
 
 private:
     Ui::addEmployee *ui;
