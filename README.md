@@ -1,6 +1,7 @@
 # Blockbusted
 This is the Blockbusted Video Project for CS433
 
+stufffffff
 
 There's a problem with adding .pro and .pro.user files
 Therefore if you want to start from scratch you have to create a new project in Qt and love the files over.
