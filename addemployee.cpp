@@ -15,7 +15,6 @@ addEmployee::~addEmployee()
     delete ui;
 }
 
-//Cancels out of sign in window
 void addEmployee::on_cancelButton_clicked()
 {
     QWidget::close();
@@ -23,6 +22,5 @@ void addEmployee::on_cancelButton_clicked()
 
 void addEmployee::on_signInButton_clicked()
 {
-
 }
 
