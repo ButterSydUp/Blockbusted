@@ -1,11 +1,34 @@
 #include "addcustomer.h"
 #include "ui_addcustomer.h"
+#include <QWidget>
+#include <QDesktopWidget>
+#include <iostream>
+#include <QFont>
+
+using namespace std;
 
 addCustomer::addCustomer(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addCustomer)
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    const int scrnHeight = rec.height(); // returns the height of the screen.
+    const int scrnWidth = rec.width(); // returns the width of the screen.
+    double boxWidth = scrnWidth * .35;
+    double boxHeight = scrnHeight * .65;
+    double fontSize = (boxWidth) * .02;
+    int innerFrameX = boxWidth*.6;
+    int innerFrameY = boxHeight*.6;
     ui->setupUi(this);
+    this->setFixedSize(boxWidth,boxHeight);
+    ui->frame_2->resize(boxWidth*.6,boxHeight*.6);
+    ui->frame_2->move(boxWidth/2-innerFrameX/2,boxHeight/2-innerFrameY/2);
+    QFont f("Arial", fontSize, QFont::Normal);
+    ui->label->resize(innerFrameX*.3,innerFrameY*.2); ui->label->setFont(f); ui->label->move(boxHeight/2-(innerFrameX*.3)/2,innerFrameY*.1);
+    ui->firstName->setFont(f); ui->lastName->setFont(f); ui->email->setFont(f); ui->city->setFont(f); ui->address->setFont(f); ui->phoneNumber->setFont(f); ui->state->setFont(f);
+    ui->zipCode->setFont(f);
+
+
 }
 
 addCustomer::~addCustomer()

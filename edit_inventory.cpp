@@ -1,12 +1,31 @@
 #include "edit_inventory.h"
 #include "ui_edit_inventory.h"
 #include <QMessageBox>
+#include <QLabel>
+#include <QWidget>
+#include <QDesktopWidget>
+#include <iostream>
+#include <QFont>
 
 edit_inventory::edit_inventory(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::edit_inventory)
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    const int scrnHeight = rec.height(); // returns the height of the screen.
+    const int scrnWidth = rec.width(); // returns the width of the screen.
+    double boxWidth = scrnWidth * .50;
+    double boxHeight = scrnHeight * .50;
+    double fontSize = (boxWidth) * .015;
+    int innerFrameX = boxWidth*.8;
+    int innerFrameY = boxHeight*.8;
     ui->setupUi(this);
+    QFont f("Arial", fontSize, QFont::Normal);
+    this->resize(boxWidth,boxHeight);
+    ui->product_groupBox->resize(innerFrameX,innerFrameY);
+    ui->product_groupBox->move(boxWidth/2-innerFrameX/2,boxHeight/2-innerFrameY/2);
+    ui->pname_label->setFont(f);ui->pid_label->setFont(f); ui->pprice_label->setFont(f); ui->prating_label->setFont(f); ui->pgenre_label->setFont(f);
+
 
 }
 
