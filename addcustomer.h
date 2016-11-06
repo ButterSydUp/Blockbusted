@@ -5,7 +5,7 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
-#include <dbmanager.h>
+#include "dbmanager.h"
 
 namespace Ui {
 class addCustomer;

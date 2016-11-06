@@ -31,235 +31,13 @@
     <string>Add Customer</string>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>40</y>
-     <width>151</width>
-     <height>351</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>181</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>First name</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>80</y>
-      <width>181</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Last name</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>120</y>
-      <width>201</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Email</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>231</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Address</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>231</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>City</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>240</y>
-      <width>191</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Zip Code</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>280</y>
-      <width>211</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>State</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Phone Number</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>40</y>
-     <width>201</width>
-     <height>351</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLineEdit" name="cusfirstName">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cuslastName">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>80</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cusemail">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>120</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cusaddress">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cuscity">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cuszipCode">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>240</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cusstate">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>280</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cusphoneNumber">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame_3">
-   <property name="geometry">
-    <rect>
      <x>60</x>
-     <y>400</y>
-     <width>361</width>
-     <height>51</height>
+     <y>50</y>
+     <width>341</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -268,32 +46,129 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="cancelButton">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>10</y>
-      <width>113</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cancel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addButton">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>10</y>
-      <width>113</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="6" column="2">
+     <widget class="QLineEdit" name="cusstate"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="firstName">
+      <property name="text">
+       <string>First Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="phoneNumber">
+      <property name="text">
+       <string>Phone       </string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="state">
+      <property name="text">
+       <string>State        </string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="address">
+      <property name="text">
+       <string>Address    </string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="city">
+      <property name="text">
+       <string>City          </string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLineEdit" name="cusaddress"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="cusfirstName">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>1000</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLineEdit" name="cuszipCode"/>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="cuslastName"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="zipCode">
+      <property name="text">
+       <string>Zip Code  </string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lastName">
+      <property name="text">
+       <string>Last Name</string>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QLineEdit" name="cusphoneNumber">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="cusemail">
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="email">
+      <property name="text">
+       <string>Email        </string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>-1</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLineEdit" name="cuscity"/>
+    </item>
+    <item row="10" column="1">
+     <widget class="QPushButton" name="cancelButton">
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QPushButton" name="addButton">
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QLabel" name="errorLabel">
    <property name="geometry">
