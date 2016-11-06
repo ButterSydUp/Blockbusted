@@ -1,11 +1,27 @@
 #include "emp_verification.h"
 #include "ui_emp_verification.h"
+#include <QLabel>
+#include <QWidget>
+#include <QDesktopWidget>
+#include <iostream>
+#include <QFont>
 
 emp_verification::emp_verification(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::emp_verification)
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    const int scrnHeight = rec.height(); // returns the height of the screen.
+    const int scrnWidth = rec.width(); // returns the width of the screen.
+    double boxWidth = scrnWidth * .20;
+    double boxHeight = scrnHeight * .15;
+    double fontSize = (boxWidth) * .02;
+    int innerFrameX = boxWidth*.8;
+    int innerFrameY = boxHeight*.8;
     ui->setupUi(this);
+    this->resize(boxWidth,boxHeight);
+    ui->centralWidget->resize(innerFrameX,innerFrameY);
+    ui->centralWidget->move(boxWidth/2-innerFrameX/2,boxHeight/2-innerFrameY*.6);
 }
 
 emp_verification::~emp_verification()
