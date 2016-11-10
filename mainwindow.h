@@ -44,6 +44,10 @@ private slots:
 
     void on_view_Inv_clicked();
 
+    void on_signInButton_clicked();
+
+    void on_signOutButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
