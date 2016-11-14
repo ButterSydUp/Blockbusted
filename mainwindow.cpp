@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     const int signInBox_xSize = width1*0.2;
     const int signInBox_ySize = height1*0.2;
     ui->signInBox->resize(signInBox_xSize, signInBox_ySize);
-
+    ui->signInBox->move(width1/2.5, height1/4);
 
     ui->check_in->setEnabled(false);
     ui->check_out->setEnabled(false);
