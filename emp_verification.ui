@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Verification</string>
   </property>
   <widget class="QWidget" name="centralWidget" native="true">
    <property name="geometry">
@@ -22,19 +22,6 @@
      <height>190</height>
     </rect>
    </property>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>150</y>
-      <width>241</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>[+] Status</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
@@ -122,6 +109,19 @@
       <string>Sign in</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>160</y>
+      <width>221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
