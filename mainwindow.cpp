@@ -141,7 +141,7 @@ void MainWindow::on_view_Inv_clicked()
     viewInv.exec();
 }
 
-//Privaledge Authentication
+//Priviledge Authentication
 //Dictates what level of authority user has
 //Actives certain buttons depending on employee level
 void MainWindow::on_signInButton_clicked()
