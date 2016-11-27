@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QFileInfo>
 
-
 namespace Ui {
 class emp_verification;
 }
@@ -17,7 +16,12 @@ class emp_verification : public QDialog
     Q_OBJECT
 
 public:
-    bool isSignedIn = false;
+    bool employeeIsSignedIn = false;
+    bool assistantManagerIsSignedIn = false;
+    bool generalManagerIsSignedIn = false;
+
+    QString firstName, lastName, empID;
+
     explicit emp_verification(QWidget *parent = 0);
     ~emp_verification();
 

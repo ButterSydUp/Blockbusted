@@ -50,22 +50,38 @@ void emp_verification::on_signInButton_clicked()
     if(qry.exec("SELECT * FROM Employee WHERE EmpID = '"+ username +"' AND Password = '"+ password +"'"))
     {
         int count = 0;
-        int managerFlag = 0;
+        int employeeFlag = 0;
 
         while(qry.next())
         {
             count++;
-            managerFlag = qry.value(3).toInt();
+            employeeFlag = qry.value(3).toInt();
+            firstName = qry.value(1).toString();
+            lastName = qry.value(2).toString();
+            empID = qry.value(0).toString();
         }
 
-        if(count == 1 && managerFlag == 1)
+        if(count == 1 && employeeFlag == 0)
         {
-            ui->label->setText("Signed in");
-            isSignedIn = true;
+            employeeIsSignedIn = true;
+            qDebug() << "Employee signed in";
             this->close();
         }
-        else if(count == 1 && managerFlag != 1)
-            ui->label->setText("Insufficient privileges");
+
+        else if(count == 1 && employeeFlag == 1)
+        {
+            assistantManagerIsSignedIn = true;
+            qDebug() << "Assistant manager signed in";
+            this->close();
+        }
+
+        else if(count == 1 && employeeFlag == 2)
+        {
+            generalManagerIsSignedIn = true;
+            qDebug() << "General manager signed in";
+            this->close();
+        }
+
         else if(count < 1)
             ui->label->setText("Incorrect username or password");
     }
