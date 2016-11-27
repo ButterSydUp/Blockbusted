@@ -1,6 +1,7 @@
 #include "addemployee.h"
 #include "ui_addemployee.h"
 
+//creates addEmployee window
 addEmployee::addEmployee(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addEmployee)
@@ -8,6 +9,7 @@ addEmployee::addEmployee(QWidget *parent) :
     ui->setupUi(this);
 }
 
+//destructor
 addEmployee::~addEmployee()
 {
     delete ui;
@@ -19,11 +21,13 @@ void addEmployee::on_cancelButton_clicked()
     QWidget::close();
 }
 
+//Adds Employee to the Database
 void addEmployee::on_addButton_clicked()
 {
     QString empID, fName, lName, addr, cit, zCode, sta, pNum, emailA, passWord;
     int manaOrEmp;
 
+    //set variables to values in the given text boxes
     fName = ui->empFname->text();
     lName = ui->empLname->text();
     passWord = ui->empPass->text();
@@ -34,11 +38,8 @@ void addEmployee::on_addButton_clicked()
     emailA = ui->empEmail->text();
     pNum = ui->empPhone->text();
     manaOrEmp = ui->empOrMana->isChecked();
-    /*if(ui->empOrMana->isChecked())
-    {    manaOrEmp = 1; }
-    else
-    {    manaOrEmp = 0; }*/
 
+    //Error check to make sure all fields are filled in
     if ((fName==NULL)||(lName==NULL)||(addr==NULL)||(cit==NULL)||(zCode==NULL)||
             (sta==NULL)||(pNum==NULL)||(emailA==NULL)||(passWord==NULL))
     {
@@ -48,7 +49,7 @@ void addEmployee::on_addButton_clicked()
     else
     {
 
-
+        //Insert Employee into database
         QSqlQuery query;
         query.prepare("INSERT INTO Employee (FirstName, LastName, Manager, Password, Address, City, State, ZipCode, EmailAddress, PhoneNumber)"
                       "VALUES (:FirstName, :LastName, :Manager, :Password, :Address, :City, :State, :ZipCode, :EmailAddress, :PhoneNumber)");
@@ -69,18 +70,18 @@ void addEmployee::on_addButton_clicked()
             qDebug() << "Add Employee Error: "
                      << query.lastError();
         }
-        else {
+
+        //Confirmation of success and reset parameters
         ui->errorLabel->setText("Employee was added to the database, click 'add'");
         ui->errorLabel2->setText("to add another employee or cancel to exit.");
         ui->empFname->setText(NULL);
         ui->empLname->setText(NULL);
         ui->empPass->setText(NULL);
-        //ui->empOrMana->isChecked();
         ui->empAddress->setText(NULL);
         ui->empCity->setText(NULL);
         ui->empZip->setText(NULL);
         ui->empState->setText(NULL);
         ui->empPhone->setText(NULL);
-        ui->empEmail->setText(NULL); }
+        ui->empEmail->setText(NULL);
     }
 }
