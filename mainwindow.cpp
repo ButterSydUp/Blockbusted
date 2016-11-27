@@ -7,7 +7,6 @@
 #include <QVBoxLayout>
 using namespace std;
 
-//stuffffff
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -53,12 +52,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
-
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 //Button for quitting the program
 void MainWindow::on_fts_clicked()
@@ -68,17 +65,14 @@ void MainWindow::on_fts_clicked()
 }
 
 //Button for adding employee
-//Asks for authentication
 void MainWindow::on_add_emp_clicked()
 {
-
     addEmployee addEmp;
     addEmp.setModal(true);
     addEmp.exec();
 }
 
 //Button for removing/terminating employee
-//Asks for authentication
 void MainWindow::on_remove_emp_clicked()
 {
     remove_employee revEmp;
@@ -87,7 +81,6 @@ void MainWindow::on_remove_emp_clicked()
 }
 
 //Button for viewing/editting employee
-//Asks for authentication
 void MainWindow::on_view_emp_clicked()
 {
     edit_employee edit_emp;
@@ -98,32 +91,24 @@ void MainWindow::on_view_emp_clicked()
 //Button for editting inventory
 //Can add to inventory
 //Can remove from inventory
-//Asks for authentication
 void MainWindow::on_edit_Inv_clicked()
 {
-
     edit_inventory editInv;
     editInv.setModal(true);
     editInv.exec();
-
 }
 
 //Button for checking in
-//Does not require authentication
 void MainWindow::on_check_in_clicked()
 {
-
 }
 
 //Button for checking out
-//Does not require authentication
 void MainWindow::on_check_out_clicked()
 {
-
 }
 
 //Button for adding customers to database
-//Does not require authentication
 void MainWindow::on_add_Customer_clicked()
 {
     addCustomer addCus;
@@ -132,7 +117,6 @@ void MainWindow::on_add_Customer_clicked()
 }
 
 //Button for removing customers from database
-//Does not require authentication
 void MainWindow::on_remove_Customer_clicked()
 {
     remove_customer remCus;
@@ -141,7 +125,6 @@ void MainWindow::on_remove_Customer_clicked()
 }
 
 //Button for viewing/editting customers' information
-//Does not require authentication
 void MainWindow::on_view_Customers_clicked()
 {
     edit_customer edit_cus;
@@ -151,7 +134,6 @@ void MainWindow::on_view_Customers_clicked()
 
 //Button ONLY for viewing inventory
 //Cannot edit/remove/add to inventory
-//Does not require authentication
 void MainWindow::on_view_Inv_clicked()
 {
     View_inventory viewInv;
@@ -159,13 +141,16 @@ void MainWindow::on_view_Inv_clicked()
     viewInv.exec();
 }
 
-
+//Privaledge Authentication
+//Dictates what level of authority user has
+//Actives certain buttons depending on employee level
 void MainWindow::on_signInButton_clicked()
 {
     emp_verification empVer;
     empVer.setModal(true);
     empVer.exec();
 
+    //activates all buttons
     if(empVer.generalManagerIsSignedIn == true)
     {
         ui->loggedInName->setText(empVer.firstName + " " + empVer.lastName);
@@ -183,6 +168,7 @@ void MainWindow::on_signInButton_clicked()
         ui->view_emp->setEnabled(true);
         ui->edit_Inv->setEnabled(true);
     }
+    //activates most buttons except employee and inventory adjustment buttons
     else if(empVer.assistantManagerIsSignedIn == true)
     {
         ui->loggedInName->setText(empVer.firstName + " " + empVer.lastName);
@@ -200,6 +186,8 @@ void MainWindow::on_signInButton_clicked()
         ui->view_emp->setEnabled(true);
         ui->edit_Inv->setEnabled(false);
     }
+    //lowest level user, some buttons become available
+    //check in, check out, add/view customer
     else if(empVer.employeeIsSignedIn == true)
     {
         ui->loggedInName->setText(empVer.firstName + " " + empVer.lastName);
@@ -219,6 +207,7 @@ void MainWindow::on_signInButton_clicked()
     }
 }
 
+//removes all button function until next sign in
 void MainWindow::on_signOutButton_clicked()
 {
     ui->loggedInName->setText("No user logged in");
@@ -238,5 +227,5 @@ void MainWindow::on_signOutButton_clicked()
 }
 
 void MainWindow::on_Quit_clicked()
-{/*Qt auto exits upon click */}
+{/*Qt exits upon click */}
 
