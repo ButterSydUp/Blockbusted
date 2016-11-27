@@ -2,21 +2,25 @@
 #include "ui_edit_inventory.h"
 #include <QMessageBox>
 
+//Creates window
 edit_inventory::edit_inventory(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::edit_inventory)
 {
     ui->setupUi(this);
-
 }
 
+//Destructor
 edit_inventory::~edit_inventory()
 {
     delete ui;
 }
 
+//Adds Product to the Database
+//Also Creates a replica in Inventory Count portion to keep track of how many we have
 void edit_inventory::on_add_product_clicked()
 {
+    //Set temp variables to entered text field values
     QString pid, name, genre, rating, price, quantity;
     pid = ui->pid_input->text();
     name = ui->pname_input->text();
@@ -25,6 +29,7 @@ void edit_inventory::on_add_product_clicked()
     price = ui->pprice_input->text();
     quantity = ui->pquantity_input->text();
 
+    //Insert item into Inventory
     QSqlQuery qry;
     qry.prepare("INSERT INTO Inventory (ProductName, Genre, Rating, Price, Quantity) VALUES (:name, :genre, :rating, :price, :quantity)");
     //qry.bindValue(":pid", pid); //don't need due to autoincriment
@@ -34,12 +39,10 @@ void edit_inventory::on_add_product_clicked()
     qry.bindValue(":price", price);
     qry.bindValue(":quantity", quantity);
 
-    if(qry.exec()) {
-        QMessageBox::critical(this, tr("Save"), tr("Saved"));
-    }
-    else {
-        QMessageBox::critical(this, tr("error::"), qry.lastError().text());
-    }
+    if(qry.exec())
+    {   QMessageBox::critical(this, tr("Save"), tr("Saved")); }
+    else
+    {   QMessageBox::critical(this, tr("error::"), qry.lastError().text()); }
 
     // Query for inserting the new product to InventoryCount
     QSqlQuery qryCount;
@@ -53,14 +56,14 @@ void edit_inventory::on_add_product_clicked()
     qryCount.bindValue(":variance", variance);
     qryCount.bindValue(":count", count);
 
-    if(qryCount.exec()) {
-        QMessageBox::critical(this, tr("Save"), tr("InventoryCount Saved"));
-    }
-    else {
-        QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
-    }
+    if(qryCount.exec())
+    {   QMessageBox::critical(this, tr("Save"), tr("InventoryCount Saved")); }
+    else
+    {   QMessageBox::critical(this, tr("error::"), qryCount.lastError().text()); }
 }
 
+//Edits inventory item based on provided Product ID number
+//Product ID must exist for edits to be made
 void edit_inventory::on_edit_product_clicked()
 {
     QString pid, name, genre, rating, price, quantity;
@@ -75,9 +78,9 @@ void edit_inventory::on_edit_product_clicked()
     qry.prepare("UPDATE Inventory SET ProductID='"+pid+"', ProductName='"+name+"', Genre='"+genre+"', Rating='"+rating+"', Price='"+price+"', Quantity='"+quantity+"' WHERE ProductID='"+pid+"'");
 
     if(qry.exec())
-        QMessageBox::critical(this, tr("Edit"), tr("Updated!"));
+    {    QMessageBox::critical(this, tr("Edit"), tr("Updated!")); }
     else
-        QMessageBox::critical(this, tr("error::"), qry.lastError().text());
+    {    QMessageBox::critical(this, tr("error::"), qry.lastError().text()); }
 
     // Query for editting the same product in InventoryCount
     QSqlQuery qryCount;
@@ -87,14 +90,13 @@ void edit_inventory::on_edit_product_clicked()
 
     qryCount.prepare("UPDATE InventoryCount SET ProductID='"+pid+"', ProductName='"+name+"', Quantity='"+quantity+"', Counted='"+counted+"' WHERE ProductID='"+pid+"'");
 
-    if(qryCount.exec()) {
-        QMessageBox::critical(this, tr("Edit"), tr("InventoryCount Updated"));
-    }
-    else {
-        QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
-    }
+    if(qryCount.exec())
+    {   QMessageBox::critical(this, tr("Edit"), tr("InventoryCount Updated")); }
+    else
+    {   QMessageBox::critical(this, tr("error::"), qryCount.lastError().text()); }
 }
 
+//Loads inventory to view
 void edit_inventory::on_load_inv_clicked()
 {
     QSqlQueryModel * model = new QSqlQueryModel();
@@ -106,8 +108,9 @@ void edit_inventory::on_load_inv_clicked()
     qDebug() << (model->rowCount());
 }
 
+//Uneccesarry Function?
 void edit_inventory::on_inv_view_clicked(const QModelIndex &index)
-{
+{/*
     QString val = ui->inv_view->model()->data(index).toString();
 
     QSqlQuery qry;
@@ -135,8 +138,9 @@ void edit_inventory::on_inv_view_clicked(const QModelIndex &index)
     else {
         QMessageBox::critical(this, tr("error::"), qry.lastError().text());
     }
-}
+*/}
 
+//Removes product from inventory list
 void edit_inventory::on_remove_product_clicked()
 {
     QString pid, name, genre, rating, price;
@@ -146,27 +150,21 @@ void edit_inventory::on_remove_product_clicked()
     qry.prepare("DELETE FROM Inventory WHERE ProductID='"+pid+"'");
 
     if(qry.exec())
-    {
-        QMessageBox::critical(this, tr("Delete"), tr("Deleted!"));
-    }
+    {   QMessageBox::critical(this, tr("Delete"), tr("Deleted!")); }
     else
-    {
-        QMessageBox::critical(this, tr("error::"), qry.lastError().text());
-    }
+    {   QMessageBox::critical(this, tr("error::"), qry.lastError().text()); }
 
     // Query for deleting the selected product in InventoryCount
     QSqlQuery qryCount;
-
     qryCount.prepare("DELETE FROM InventoryCount WHERE ProductID='"+pid+"'");
 
-    if(qryCount.exec()) {
-        QMessageBox::critical(this, tr("Delete"), tr("InventoryCount Deleted"));
-    }
-    else {
-        QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
-    }
+    if(qryCount.exec())
+    {   QMessageBox::critical(this, tr("Delete"), tr("InventoryCount Deleted")); }
+    else
+    {   QMessageBox::critical(this, tr("error::"), qryCount.lastError().text()); }
 }
 
+//Creates Inventory Count window
 void edit_inventory::on_InventoryCount_clicked()
 {
     inventory_count invCount;
