@@ -108,9 +108,10 @@ void edit_inventory::on_load_inv_clicked()
     qDebug() << (model->rowCount());
 }
 
-//Uneccesarry Function?
+//Loads Text fields with given selected Inventory item's data
+//also highlights product id in grey
 void edit_inventory::on_inv_view_clicked(const QModelIndex &index)
-{/*
+{
     QString val = ui->inv_view->model()->data(index).toString();
 
     QSqlQuery qry;
@@ -138,7 +139,7 @@ void edit_inventory::on_inv_view_clicked(const QModelIndex &index)
     else {
         QMessageBox::critical(this, tr("error::"), qry.lastError().text());
     }
-*/}
+}
 
 //Removes product from inventory list
 void edit_inventory::on_remove_product_clicked()
