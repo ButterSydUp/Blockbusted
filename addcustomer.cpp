@@ -1,6 +1,7 @@
 #include "addcustomer.h"
 #include "ui_addcustomer.h"
 
+//creates window
 addCustomer::addCustomer(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addCustomer)
@@ -8,6 +9,7 @@ addCustomer::addCustomer(QWidget *parent) :
     ui->setupUi(this);
 }
 
+//destructor
 addCustomer::~addCustomer()
 {
     delete ui;
@@ -19,10 +21,12 @@ void addCustomer::on_cancelButton_clicked()
     QWidget::close();
 }
 
+//Add customer to the Database
 void addCustomer::on_addButton_clicked()
 {
     QString fName, lName, addr, cit, zCode, sta, pNum, emailA;
 
+    //set variables to values in the given text boxes
     fName = ui->cusfirstName->text();
     lName = ui->cuslastName->text();
     addr = ui->cusaddress->text();
@@ -32,6 +36,7 @@ void addCustomer::on_addButton_clicked()
     pNum = ui->cusphoneNumber->text();
     emailA = ui->cusemail->text();
 
+    //error check to make sure all boxes are filled in
     if ((fName==NULL)||(lName==NULL)||(addr==NULL)||(cit==NULL)||(zCode==NULL)||(sta==NULL)||(pNum==NULL)||(emailA==NULL))
     {
         ui->errorLabel->setText("Please fill all the requiered fields.");
@@ -39,7 +44,7 @@ void addCustomer::on_addButton_clicked()
     }
     else
     {
-        
+        //insert given information into the database
         QSqlQuery query;
         query.prepare("INSERT INTO Customer (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, EmailAddress)"
                       "VALUES (:FirstName, :LastName, :Address, :City, :State, :ZipCode, :PhoneNumber, :EmailAddress)");
@@ -51,12 +56,15 @@ void addCustomer::on_addButton_clicked()
         query.bindValue(":ZipCode", zCode);
         query.bindValue(":PhoneNumber", pNum);
         query.bindValue(":EmailAddress", emailA);
+
+        //error message if something went wrong
         if(!query.exec())
         {
             qDebug() << "Add Person Error: "
                      << query.lastError();
         }
         
+        //parameter reset and confirmation of success
         ui->errorLabel->setText("Customer was added to the database, click 'add'");
         ui->errorLabel2->setText("to add another customer or cancel to exit.");
         ui->cusfirstName->setText(NULL);
