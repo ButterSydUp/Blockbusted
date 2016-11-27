@@ -3,9 +3,13 @@
 
 #include <QMainWindow>
 #include "emp_verification.h"
-#include "addemployee.h"
+//#include "addemployee.h"
 #include "addcustomer.h"
 #include "edit_inventory.h"
+#include "remove_employee.h"
+#include "edit_employee.h"
+#include "edit_customer.h"
+#include "remove_customer.h"
 #include "dbmanager.h"
 
 namespace Ui {

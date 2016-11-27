@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1366</width>
-    <height>700</height>
+    <height>708</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -101,7 +101,7 @@
      </widget>
      <widget class="QPushButton" name="view_emp">
       <property name="text">
-       <string>View Employees</string>
+       <string>View/Edit Employees</string>
       </property>
      </widget>
      <widget class="QPushButton" name="edit_Inv">
@@ -206,7 +206,7 @@
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

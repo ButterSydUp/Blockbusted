@@ -1,5 +1,5 @@
 #include "dbmanager.h"
-QString databasepath = "C:/YOUR_ABSOLUTE_PATH/TO_THIS/blockbusted_db.db";
+QString databasepath = "C:/Users/USERR/Desktop/Blockbusted/Blockbusted/blockbusted_db.db";
 //Constructor
 //Sets up the database connection and opens it
 DbManager::DbManager(){

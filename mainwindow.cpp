@@ -62,10 +62,12 @@ void MainWindow::on_add_emp_clicked()
     empVer.exec();
 
     if(empVer.isSignedIn == true)
-    {
+    {/*
+
         addEmployee addEmp;
         addEmp.setModal(true);
         addEmp.exec();
+        */
     }
 }
 
@@ -79,7 +81,9 @@ void MainWindow::on_remove_emp_clicked()
 
     if(empVer.isSignedIn == true)
     {
-
+        remove_employee revEmp;
+        revEmp.setModal(true);
+        revEmp.exec();
     }
 }
 
@@ -93,7 +97,9 @@ void MainWindow::on_view_emp_clicked()
 
     if(empVer.isSignedIn == true)
     {
-
+        edit_employee edit_emp;
+        edit_emp.setModal(true);
+        edit_emp.exec();
     }
 }
 
@@ -142,14 +148,18 @@ void MainWindow::on_add_Customer_clicked()
 //Does not require authentication
 void MainWindow::on_remove_Customer_clicked()
 {
-
+    remove_customer remCus;
+    remCus.setModal(true);
+    remCus.exec();
 }
 
 //Button for viewing/editting customers' information
 //Does not require authentication
 void MainWindow::on_view_Customers_clicked()
 {
-
+    edit_customer editCustomer;
+    editCustomer.setModal(true);
+    editCustomer.exec();
 }
 
 //Button ONLY for viewing inventory
