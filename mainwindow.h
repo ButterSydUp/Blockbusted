@@ -3,14 +3,15 @@
 
 #include <QMainWindow>
 #include "emp_verification.h"
-//#include "addemployee.h"
+#include "addemployee.h"
 #include "addcustomer.h"
 #include "edit_inventory.h"
-#include "remove_employee.h"
-#include "edit_employee.h"
-#include "edit_customer.h"
-#include "remove_customer.h"
 #include "dbmanager.h"
+#include "edit_customer.h"
+#include "edit_employee.h"
+#include "remove_customer.h"
+#include "remove_employee.h"
+#include "view_inventory.h"
 
 namespace Ui {
 class MainWindow;
@@ -47,6 +48,12 @@ private slots:
     void on_view_Customers_clicked();
 
     void on_view_Inv_clicked();
+
+    void on_signInButton_clicked();
+
+    void on_signOutButton_clicked();
+
+    void on_Quit_clicked();
 
 private:
     Ui::MainWindow *ui;

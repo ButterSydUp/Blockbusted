@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "inventory_count.h"
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
@@ -18,6 +19,7 @@ class edit_inventory : public QDialog
 public:
     explicit edit_inventory(QWidget *parent = 0);
     ~edit_inventory();
+    const int MAX_Inv = 10;
 
 private slots:
     void on_add_product_clicked();
@@ -30,9 +32,10 @@ private slots:
 
     void on_remove_product_clicked();
 
+    void on_InventoryCount_clicked();
+
 private:
     Ui::edit_inventory *ui;
-    //QSqlDatabase blockbusted_db;
 
 };
 

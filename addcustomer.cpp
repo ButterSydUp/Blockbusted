@@ -39,8 +39,6 @@ void addCustomer::on_addButton_clicked()
     }
     else
     {
-        //DbManager dataBase;
-        //dataBase.addCustomerToDB(fName, lName, addr, cit, sta, zCode, pNum, emailA);
         
         QSqlQuery query;
         query.prepare("INSERT INTO Customer (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, EmailAddress)"
