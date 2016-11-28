@@ -1,12 +1,38 @@
 #include "addemployee.h"
 #include "ui_addemployee.h"
+#include <QWidget>
+#include <QDesktopWidget>
+#include <iostream>
+#include <QFont>
+
+using namespace std;
+
 
 //creates addEmployee window
 addEmployee::addEmployee(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addEmployee)
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    const int scrnHeight = rec.height(); // returns the height of the screen.
+    const int scrnWidth = rec.width(); // returns the width of the screen.
+    double boxWidth = scrnWidth * .35;
+    double boxHeight = scrnHeight * .65;
+    double fontSize = (boxWidth) * .02;
+    int innerFrameX = boxWidth*.6;
+    int innerFrameY = boxHeight*.6;
     ui->setupUi(this);
+    this->setFixedSize(boxWidth,boxHeight);
+    ui->frame->resize(boxWidth*.6,boxHeight*.6);
+
+    ui->frame->move(boxWidth/2-innerFrameX/2,boxHeight/2-innerFrameY/2);
+    QFont f("Arial", fontSize, QFont::Normal);
+    ui->label->resize(innerFrameX*.3,innerFrameY*.2); ui->label->setFont(f); ui->label->move(boxHeight/2-(innerFrameX*.3)/2,innerFrameY*.1);
+    ui->firstName->setFont(f); ui->lastName->setFont(f); ui->email->setFont(f); ui->city->setFont(f); ui->address->setFont(f); ui->phoneNumber->setFont(f); ui->state->setFont(f);
+    ui->zipCode->setFont(f);
+    ui->password->setFont(f);
+    ui->frame_2->resize(innerFrameX*.5,innerFrameY*.5);
+    ui->frame_2->move(boxHeight/2-(innerFrameX*.3)/2,innerFrameY*.7);
 }
 
 //destructor

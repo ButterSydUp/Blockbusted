@@ -1,13 +1,26 @@
 #include "edit_inventory.h"
 #include "ui_edit_inventory.h"
 #include <QMessageBox>
+#include <QWidget>
+#include <QDesktopWidget>
+#include <iostream>
+#include <QFont>
 
 //Creates window
 edit_inventory::edit_inventory(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::edit_inventory)
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    const int scrnHeight = rec.height(); // returns the height of the screen.
+    const int scrnWidth = rec.width(); // returns the width of the screen.
+    double boxWidth = scrnWidth * .50;
+    double boxHeight = scrnHeight * .50;
+    int innerFrameX = boxWidth*.90;
+    int innerFrameY = boxHeight*.80;
     ui->setupUi(this);
+    this->resize(boxWidth,boxHeight);
+    ui->product_groupBox->resize(innerFrameX,innerFrameY);
 }
 
 //Destructor

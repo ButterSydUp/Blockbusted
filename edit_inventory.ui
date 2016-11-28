@@ -13,244 +13,125 @@
   <property name="windowTitle">
    <string>Inventory</string>
   </property>
-  <widget class="QTableView" name="inv_view">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>10</y>
-     <width>621</width>
-     <height>401</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QGroupBox" name="product_groupBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>211</width>
-     <height>411</height>
+     <x>50</x>
+     <y>50</y>
+     <width>731</width>
+     <height>357</height>
     </rect>
    </property>
    <property name="title">
     <string>Product</string>
    </property>
-   <widget class="QLabel" name="pid_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ID</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="pname_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Name</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="pgenre_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Genre</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="prating_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>120</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Rating</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="pprice_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>150</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Price</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="pid_input">
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>30</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="pname_input">
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>60</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="pgenre_input">
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>90</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="prating_input">
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>120</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="pprice_input">
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>150</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="add_product">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>210</y>
-      <width>131</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="edit_product">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>250</y>
-      <width>131</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Edit</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="remove_product">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>290</y>
-      <width>131</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Remove</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="load_inv">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>370</y>
-      <width>131</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Load Inventory</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="pquantity_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Quantity</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="pquantity_input">
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>180</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="InventoryCount">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>330</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Inventory Count</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Exit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>210</y>
-      <width>51</width>
-      <height>191</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Exit</string>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="pid_label">
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="add_product">
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3" rowspan="8">
+     <widget class="QTableView" name="inv_view"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="pquantity_label">
+      <property name="text">
+       <string>Quantity</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="prating_label">
+      <property name="text">
+       <string>Rating</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="pgenre_label">
+      <property name="text">
+       <string>Genre</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="pname_label">
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="pprice_label">
+      <property name="text">
+       <string>Price</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="edit_product">
+      <property name="text">
+       <string>Edit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QPushButton" name="remove_product">
+      <property name="text">
+       <string>Remove</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QPushButton" name="InventoryCount">
+      <property name="text">
+       <string>Inventory Count</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QPushButton" name="load_inv">
+      <property name="text">
+       <string>Load Inventory</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="Exit">
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1" colspan="2">
+     <widget class="QLineEdit" name="pquantity_input"/>
+    </item>
+    <item row="4" column="1" colspan="2">
+     <widget class="QLineEdit" name="pprice_input"/>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QLineEdit" name="prating_input"/>
+    </item>
+    <item row="2" column="1" colspan="2">
+     <widget class="QLineEdit" name="pgenre_input"/>
+    </item>
+    <item row="1" column="1" colspan="2">
+     <widget class="QLineEdit" name="pname_input"/>
+    </item>
+    <item row="0" column="1" colspan="2">
+     <widget class="QLineEdit" name="pid_input"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

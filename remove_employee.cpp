@@ -1,12 +1,28 @@
 #include "remove_employee.h"
 #include "ui_remove_employee.h"
 #include <QMessageBox>
+#include <QWidget>
+#include <QDesktopWidget>
+#include <iostream>
+
+
+using namespace std;
 
 remove_employee::remove_employee(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::remove_employee)
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    const int scrnHeight = rec.height(); // returns the height of the screen.
+    const int scrnWidth = rec.width(); // returns the width of the screen.
+    double boxWidth = scrnWidth * .40;
+    double boxHeight = scrnHeight * .40;
+    int innerFrameX = boxWidth*.85;
+    int innerFrameY = boxHeight*.85;
     ui->setupUi(this);
+    this->resize(boxWidth,boxHeight);
+    ui->groupBox->resize(innerFrameX,innerFrameY);
+    ui->groupBox->move(boxWidth/2-innerFrameX/2,boxHeight/2-innerFrameY/2);
 }
 
 remove_employee::~remove_employee()

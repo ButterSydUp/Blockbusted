@@ -24,11 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->splitter->resize(xsize,ysize);  // splitter refers to the normal employee buttons.
     ui->splitter_2->resize(xsize,ysize); // splitter_2 refers to the admin buttons.
 
-    cout << width1 << endl;
-    cout << height1 << endl;
-    cout << adminB << endl;
-    cout << height1 * .10 << endl;
-    cout << ysize << endl;
     ui->groupBox_3->resize(xsize*1.2,ysize*1.2);
     ui->groupBox_2->move(adminB,10);
     ui->groupBox_3->move(10,10);

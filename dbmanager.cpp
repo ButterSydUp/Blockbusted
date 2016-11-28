@@ -1,7 +1,7 @@
 #include "dbmanager.h"
 //Absolute path to database
 //Needs to be changed for each user
-QString databasepath = "YOUR_ABSOLUTE_PATH/blockbusted_db.db";
+QString databasepath = "C:/Users/Raymango/Desktop/FinalBB/Blockbusted-Final_Product/blockbusted_db.db";
 
 //Constructor
 //Sets up the database connection and opens it
