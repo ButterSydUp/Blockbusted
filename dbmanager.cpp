@@ -24,7 +24,14 @@ void DbManager::dataClose(){
     qDebug() << "Database connection removed";
 }
 
-//Destructor
-DbManager::~DbManager(){
-    dataClose();
+//begin singleton
+DbManager* DbManager::_instance = 0;
+
+DbManager* DbManager::Instance()
+{
+    if ( _instance == 0 )
+        _instance = new DbManager();
+ return _instance;
 }
+
+//end singleton
