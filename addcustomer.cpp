@@ -29,8 +29,8 @@ addCustomer::addCustomer(QWidget *parent) :
     ui->label->resize(innerFrameX*.3,innerFrameY*.2); ui->label->setFont(f); ui->label->move(boxHeight/2-(innerFrameX*.3)/2,innerFrameY*.1);
     ui->firstName->setFont(f); ui->lastName->setFont(f); ui->email->setFont(f); ui->city->setFont(f); ui->address->setFont(f); ui->phoneNumber->setFont(f); ui->state->setFont(f);
     ui->zipCode->setFont(f);
-    ui->frame_2->resize(innerFrameX*.5,innerFrameY*.5);
-    ui->frame_2->move(boxHeight/2-(innerFrameX*.3)/2,innerFrameY*.7);
+//    ui->frame_2->resize(innerFrameX*.5,innerFrameY*.5);
+//    ui->frame_2->move(boxHeight/2-(innerFrameX*.3)/2,innerFrameY*.7);
 
 
 }

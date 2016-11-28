@@ -43,7 +43,7 @@
      <x>60</x>
      <y>40</y>
      <width>311</width>
-     <height>375</height>
+     <height>411</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -127,10 +127,53 @@
     <item row="14" column="1">
      <widget class="QLineEdit" name="empState"/>
     </item>
+    <item row="17" column="0">
+     <widget class="QLabel" name="phoneNumber">
+      <property name="text">
+       <string>Phone Number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="1">
+     <widget class="QLineEdit" name="empPhone"/>
+    </item>
+    <item row="20" column="0">
+     <widget class="QLabel" name="password">
+      <property name="text">
+       <string>Password</string>
+      </property>
+     </widget>
+    </item>
     <item row="20" column="1">
      <widget class="QLineEdit" name="empPass"/>
     </item>
-    <item row="22" column="0" colspan="2">
+    <item row="21" column="1">
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="addButton">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="21" column="0">
      <widget class="QRadioButton" name="empOrMana">
       <property name="text">
        <string>Manager</string>
@@ -140,55 +183,6 @@
       </property>
       <property name="autoRepeat">
        <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="17" column="1">
-     <widget class="QLineEdit" name="empPhone"/>
-    </item>
-    <item row="17" column="0">
-     <widget class="QLabel" name="phoneNumber">
-      <property name="text">
-       <string>Phone Number</string>
-      </property>
-     </widget>
-    </item>
-    <item row="20" column="0">
-     <widget class="QLabel" name="password">
-      <property name="text">
-       <string>Password</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>430</y>
-     <width>176</width>
-     <height>43</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="addButton">
-      <property name="text">
-       <string>Add</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="cancelButton">
-      <property name="text">
-       <string>Cancel</string>
       </property>
      </widget>
     </item>
