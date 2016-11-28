@@ -18,6 +18,8 @@ inventory_count::inventory_count(QWidget *parent) :
     int innerFrameX = boxWidth*.90;
     int innerFrameY = boxHeight*.75;
     ui->setupUi(this);
+    this->resize(boxWidth,boxHeight);
+    ui->invCount_groupBox->resize(innerFrameX,innerFrameY);
 
     QSqlQueryModel * model = new QSqlQueryModel();
     QSqlQuery* query = new QSqlQuery();
@@ -36,4 +38,69 @@ inventory_count::inventory_count(QWidget *parent) :
 inventory_count::~inventory_count()
 {
     delete ui;
+}
+
+void inventory_count::on_inventoryCount_clicked(const QModelIndex &index)
+{
+    QString val = ui->inventoryCount->model()->data(index).toString();
+
+    QSqlQuery qryCount;
+    qryCount.prepare("SELECT * FROM InventoryCount WHERE ProductID='"+val+"' OR ProductName='"+val+"' OR Quantity='"+val+"' OR Counted='"+val+"' OR Variance='"+val+"'");
+
+    if(qryCount.exec())
+    {
+        while(qryCount.next())
+        {
+            ui->id_input->setText(qryCount.value(0).toString());
+            ui->name_input->setText(qryCount.value(1).toString());
+            ui->quantity_input->setText(qryCount.value(2).toString());
+            ui->count_input->setText(qryCount.value(3).toString());
+            ui->variance_input->setText(qryCount.value(4).toString());
+
+            ui->id_input->setReadOnly(true);
+            ui->name_input->setReadOnly(true);
+            ui->quantity_input->setReadOnly(true);
+            QPalette *palette = new QPalette();
+            palette->setColor(QPalette::Base, Qt::lightGray);
+            palette->setColor(QPalette::Text, Qt::black);
+            ui->id_input->setPalette(*palette);
+            ui->name_input->setPalette(*palette);
+            ui->quantity_input->setPalette(*palette);
+        }
+    }
+    else {
+        QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
+    }
+}
+
+void inventory_count::on_edit_invCount_clicked()
+{
+    QString pid, name, quantity, counted, variance;
+    pid = ui->id_input->text();
+    name = ui->name_input->text();
+    counted = ui->count_input->text();
+    variance = ui->variance_input->text();
+    int quan = counted.toInt() - variance.toInt();
+    quantity = QString::number(quan);
+    ui->quantity_input->setText(quantity);
+
+    QSqlQuery qryCount;
+    qryCount.prepare("UPDATE InventoryCount SET ProductID='"+pid+"', ProductName='"+name+"', Quantity='"+quantity+"', Counted='"+counted+"', Variance='"+variance+"' WHERE ProductID='"+pid+"'");
+
+    if(qryCount.exec())
+        QMessageBox::critical(this, tr("Edit"), tr("Updated!"));
+    else
+        QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
+
+    // Query for editting the same product in Inventory
+    QSqlQuery qry;
+
+    qry.prepare("UPDATE Inventory SET Quantity='"+quantity+"' WHERE ProductID='"+pid+"'");
+
+    if(qry.exec()) {
+        QMessageBox::critical(this, tr("Edit"), tr("Inventory Updated"));
+    }
+    else {
+        QMessageBox::critical(this, tr("error::"), qry.lastError().text());
+    }
 }

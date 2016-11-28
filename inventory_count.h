@@ -18,6 +18,9 @@ public:
     ~inventory_count();
 
 private slots:
+    void on_inventoryCount_clicked(const QModelIndex &index);
+
+    void on_edit_invCount_clicked();
 
 private:
     Ui::inventory_count *ui;
