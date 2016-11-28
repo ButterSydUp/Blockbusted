@@ -14,8 +14,8 @@ emp_verification::emp_verification(QWidget *parent) :
     const int scrnWidth = rec.width(); // returns the width of the screen.
     double boxWidth = scrnWidth * .25;
     double boxHeight = scrnHeight * .25;
-    int innerFrameX = boxWidth*.50;
-    int innerFrameY = boxHeight*.50;
+    int innerFrameX = boxWidth*.70;
+    int innerFrameY = boxHeight*.70;
     ui->setupUi(this);
     this->resize(boxWidth,boxHeight);
     ui->groupBox->resize(innerFrameX,innerFrameY);
