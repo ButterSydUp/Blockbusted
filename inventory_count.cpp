@@ -78,29 +78,24 @@ void inventory_count::on_edit_invCount_clicked()
     QString pid, name, quantity, counted, variance;
     pid = ui->id_input->text();
     name = ui->name_input->text();
+    quantity = ui->quantity_input->text();
     counted = ui->count_input->text();
-    variance = ui->variance_input->text();
-    int quan = counted.toInt() - variance.toInt();
-    quantity = QString::number(quan);
-    ui->quantity_input->setText(quantity);
+    int var = quantity.toInt() - counted.toInt();
+    variance = QString::number(var);
+    ui->variance_input->setText(variance);
 
     QSqlQuery qryCount;
     qryCount.prepare("UPDATE InventoryCount SET ProductID='"+pid+"', ProductName='"+name+"', Quantity='"+quantity+"', Counted='"+counted+"', Variance='"+variance+"' WHERE ProductID='"+pid+"'");
 
-    if(qryCount.exec())
-        QMessageBox::critical(this, tr("Edit"), tr("Updated!"));
-    else
-        QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
-
-    // Query for editting the same product in Inventory
-    QSqlQuery qry;
-
-    qry.prepare("UPDATE Inventory SET Quantity='"+quantity+"' WHERE ProductID='"+pid+"'");
-
-    if(qry.exec()) {
-        QMessageBox::critical(this, tr("Edit"), tr("Inventory Updated"));
+    if(counted.toInt() <= quantity.toInt()){
+        if(qryCount.exec())
+            QMessageBox::critical(this, tr("Edit"), tr("Updated!"));
+        else
+            QMessageBox::critical(this, tr("error::"), qryCount.lastError().text());
+    } else {
+        QMessageBox::critical(this, tr("error::"), tr("Failed! Not enough products existing..."));
     }
-    else {
-        QMessageBox::critical(this, tr("error::"), qry.lastError().text());
-    }
+
+
+
 }
