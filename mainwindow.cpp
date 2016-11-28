@@ -222,5 +222,8 @@ void MainWindow::on_signOutButton_clicked()
 }
 
 void MainWindow::on_Quit_clicked()
-{/*Qt exits upon click */}
+{
+    database->dataClose();
+    qApp->exit();
+}
 

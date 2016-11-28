@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    DbManager* database = new DbManager;
+    DbManager* database = DbManager::Instance();
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
