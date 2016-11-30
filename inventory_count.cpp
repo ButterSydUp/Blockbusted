@@ -80,7 +80,7 @@ void inventory_count::on_edit_invCount_clicked()
     name = ui->name_input->text();
     quantity = ui->quantity_input->text();
     counted = ui->count_input->text();
-    int var = quantity.toInt() - counted.toInt();
+    int var = counted.toInt() - quantity.toInt();
     variance = QString::number(var);
     ui->variance_input->setText(variance);
 
@@ -96,6 +96,11 @@ void inventory_count::on_edit_invCount_clicked()
         QMessageBox::critical(this, tr("error::"), tr("Failed! Not enough products existing..."));
     }
 
-
+    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQuery* query = new QSqlQuery();
+    query->prepare("SELECT * FROM InventoryCount");
+    query->exec();
+    model->setQuery(*query);
+    ui->inventoryCount->setModel(model);
 
 }
